@@ -13,11 +13,21 @@
 
                 <!-- Nome -->
                 <div class="mb-4">
-                    <label for="name" class="block text-sm font-medium text-gray-700">Nome da Função</label>
-                    <input type="text" name="name" id="name" value="{{ old('name', $role->nome) }}"
+                    <label for="nome" class="block text-sm font-medium text-gray-700">Nome da Função</label>
+                    <input type="text" name="nome" id="nome" value="{{ old('nome', $role->nome) }}"
                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                            required>
-                    @error('name')
+                    @error('nome')
+                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
+                </div>
+                <!-- Descrição -->
+                <div class="mb-4">
+                    <label for="descricao" class="block text-sm font-medium text-gray-700">Descrição</label>
+                    <input type="text" name="descricao" id="descricao" value="{{ old('descricao', $role->descricao) }}"
+                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                           required>
+                    @error('descricao')
                         <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                 </div>

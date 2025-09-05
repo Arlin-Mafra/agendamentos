@@ -84,6 +84,12 @@
             <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                 {{ __('Usuários') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('roles.index')" :active="request()->routeIs('roles.index')">
+                {{ __('Papéis') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('tenants.index')" :active="request()->routeIs('tenants.index')">
+                {{ __('Empresas') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

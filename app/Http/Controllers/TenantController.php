@@ -48,12 +48,12 @@ class TenantController extends Controller
 
         $tenant->update($request->only('nome_empresa', 'plano', 'status'));
 
-        return redirect()->route('tenants.index')->with('success', 'Tenant atualizado!');
+        return redirect()->route('tenants.index')->with('success', 'Empresa atualizada!');
     }
 
     public function destroy(Tenant $tenant)
     {
         $tenant->delete();
-        return redirect()->route('tenants.index')->with('success', 'Tenant removido!');
+        return redirect()->route('tenants.index')->with('success', 'Empresa removida!');
     }
 }
