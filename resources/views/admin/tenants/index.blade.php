@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Gerenciar Usuários') }}
+            {{ __('Gerenciar Empresas') }}
         </h2>
     </x-slot>
 
@@ -10,10 +10,10 @@
 
             <!-- Barra de ações -->
             <div class="flex justify-between items-center mb-6">
-                <h3 class="text-lg font-medium text-gray-900">Lista de Usuários</h3>
-                <a href="{{ route('users.create') }}"
+                <h3 class="text-lg font-medium text-gray-900">Lista de Empresas</h3>
+                <a href="{{ route('tenants.create') }}"
                    class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition">
-                    + Novo Usuário
+                    + Novo Tenant
                 </a>
             </div>
 
@@ -29,38 +29,43 @@
                 </div>
             @endif
 
-            <!-- Tabela de usuários -->
+            <!-- Tabela de tenants -->
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200 border border-gray-300 rounded-md">
                     <thead class="bg-gray-100">
                         <tr>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase">ID</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase">Nome</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase">Email</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase">Empresa</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase">Plano</th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase">Status</th>
                             <th class="px-6 py-3 text-right text-xs font-medium text-gray-700 uppercase">Ações</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        @forelse ($users as $user)
+                        @forelse($tenants as $tenant)
                             <tr>
-                                <td class="px-6 py-4 text-sm text-gray-900">{{ $user->id }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-900">{{ $user->nome }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-900">{{ $user->email }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-900">{{ $tenant->id }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-900">{{ $tenant->nome_empresa }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-900">{{ ucfirst($tenant->plano) }}</td>
                                 <td class="px-6 py-4 text-sm">
-                                    @if($user->status === 'ativo')
+                                    @if($tenant->status === 'ativo')
                                         <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">Ativo</span>
                                     @else
                                         <span class="px-2 py-1 text-xs rounded-full bg-red-100 text-red-800">Inativo</span>
                                     @endif
                                 </td>
                                 <td class="px-6 py-4 text-sm text-right space-x-2">
-                                    <a href="{{ route('users.edit', $user) }}" class="text-blue-600 hover:text-blue-800">Editar</a>
+                                    <a href="{{ route('tenants.edit', $tenant) }}" class="text-blue-600 hover:text-blue-800">Editar</a>
+                                    <form action="{{ route('tenants.destroy', $tenant) }}" method="POST" class="inline-block" onsubmit="return confirm('Tem certeza que deseja excluir este tenant?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-red-600 hover:text-red-800">Excluir</button>
+                                    </form>
                                 </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="5" class="px-6 py-4 text-center text-gray-500">Nenhum usuário cadastrado.</td>
+                                <td colspan="6" class="px-6 py-4 text-center text-gray-500">Nenhum tenant cadastrado.</td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -69,7 +74,7 @@
 
             <!-- Paginação -->
             <div class="mt-4">
-                {{ $users->links() }}
+                {{ $tenants->links() }}
             </div>
         </div>
     </div>

@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserController;  // ← Adicione esta linha
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TenantController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -23,6 +25,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/users', [UserController::class, 'store'])->name('users.store');
     Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
     Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
+    Route::resource('roles', RoleController::class)->except(['show']);
+    Route::resource('tenants', TenantController::class)->except(['show']);
 });
 
 require __DIR__.'/auth.php';
