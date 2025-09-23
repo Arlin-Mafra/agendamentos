@@ -13,6 +13,9 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <!-- CSS Metro 4 -->
+        <link rel="stylesheet" href="https://cdn.metroui.org.ua/current/metro.css">
+        <link rel="stylesheet" href="https://cdn.metroui.org.ua/current/icons.css">
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -32,5 +35,6 @@
                 {{ $slot }}
             </main>
         </div>
+        <script src="https://cdn.metroui.org.ua/current/metro.js"></script>
     </body>
 </html>
