@@ -12,7 +12,7 @@
             <div class="flex justify-between items-center mb-6">
                 <h3 class="text-lg font-medium text-gray-900">Lista de Funções</h3>
                 <a href="{{ route('roles.create') }}"
-                   class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition">
+                   class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 hover:text-white transition">
                     + Nova Função
                 </a>
             </div>

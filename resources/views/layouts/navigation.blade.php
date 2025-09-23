@@ -15,8 +15,8 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
-                        {{ __('Usuários') }}
+                    <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
+                        {{ __('Clientes') }}
                     </x-nav-link>
                     <x-nav-link :href="route('roles.index')" :active="request()->routeIs('roles.index')">
                         {{ __('Papéis') }}
@@ -81,8 +81,8 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
-                {{ __('Usuários') }}
+            <x-responsive-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
+                {{ __('Clientes') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('roles.index')" :active="request()->routeIs('roles.index')">
                 {{ __('Papéis') }}

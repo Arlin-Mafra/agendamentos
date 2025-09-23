@@ -12,8 +12,8 @@
             <div class="flex justify-between items-center mb-6">
                 <h3 class="text-lg font-medium text-gray-900">Lista de Empresas</h3>
                 <a href="{{ route('tenants.create') }}"
-                   class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition">
-                    + Novo Tenant
+                   class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 hover:text-white transition">
+                    + Nova Empresa
                 </a>
             </div>
 

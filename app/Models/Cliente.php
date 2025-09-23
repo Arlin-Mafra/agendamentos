@@ -10,11 +10,17 @@ class Cliente extends Model
     protected $fillable = [
         'nome',
         'telefone',
-        'email'
+        'email',
+        'user_id'
     ];
 
     public function agendamentos()
     {
         return $this->hasMany(Agendamento::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
